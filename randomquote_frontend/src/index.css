@@ -12,10 +12,11 @@ code {
     monospace;
 }
 #wrapper {
+  --bg-color-: #333;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #333;
+  color: var(--bg-color-);
   background: #333;
   min-height: 100vh;
 }
@@ -23,22 +24,35 @@ code {
   background-color: white;
   width: 30%;
   border-radius: 10px;
-  padding: 30px 40px;
+  padding: 30px 40px 15px;
 }
 #text {
   font-weight: 500;
   font-size: 1.75em;
   text-align: center;
-  color: #333;
+  color: var(--bg-color-);
 }
 #author {
   font-size: 1em;
   text-align: right;
   margin-bottom: 10px;
-  color: #333;
+  color: var(--bg-color-);
 }
-#button {
+.button-box {
+  margin-top: 20px;
   float: right;
+}
+button {
+  color: white;
+  background: var(--bg-color-);
   border: none;
-  padding: 6px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 5px;
+}
+button:hover {
+  cursor: pointer;
+  color: var(--bg-color-);
+  background: white;
+  border: 1px solid #333;
 }

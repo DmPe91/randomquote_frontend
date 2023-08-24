@@ -1,5 +1,6 @@
 import "./App.css";
 import React from "react";
+
 import { Home } from "./pages/Home.js";
 import { AddQuote } from "./pages/addQuote.js";
 import { Routes, Route } from "react-router-dom";
