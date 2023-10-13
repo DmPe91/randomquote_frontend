@@ -8,7 +8,7 @@ const StyledButton = styled.button`
   border-radius: 10px;
   padding: 10px;
   margin-right: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   transition: 3s ease;
   float: right;
   &:hover {

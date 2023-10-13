@@ -4,7 +4,7 @@ import styled from "styled-components";
 const StyledQuoteBox = styled.div`
   background-color: white;
   width: 50%;
-  height: 25vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

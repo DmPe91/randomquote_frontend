@@ -9,7 +9,7 @@ import AddText from "../components/AddText.js";
 import AddAuthor from "../components/AddAuthor.js";
 import ButtonBox from "../components/ButtonBox.js";
 import Button from "../components/Button.js";
-import { useSpring, animated, useTransition } from "react-spring";
+
 export const AddQuote = () => {
   const [text, setText] = React.useState("");
   const [author, setAuthor] = React.useState("");
@@ -28,23 +28,18 @@ export const AddQuote = () => {
       alert("Ошибка при загрузке цитаты");
     }
   };
-  const animation = useSpring({
-    transform: "translateY(0%)",
-    from: { transform: "translateY(100%)" },
 
-    config: { duration: 1000 },
-  });
   return (
     <Wrapper background={color}>
-      <QuoteBox as={animated.div} style={animation}>
+      <QuoteBox>
         <AddText
           color={color}
-          onChange={(e) => setAuthor(e.target.value)}
+          onChange={(e) => setText(e.target.value)}
           placeholder="Текст"
         ></AddText>
         <AddAuthor
           color={color}
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e) => setAuthor(e.target.value)}
           placeholder="Автор"
         ></AddAuthor>
         <ButtonBox>

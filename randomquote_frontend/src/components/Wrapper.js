@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: space-evenly;
   background: ${(props) => props.background};
-  min-height: 100vh;
+  height: 100vh;
   transition: 3s ease;
 `;
 
