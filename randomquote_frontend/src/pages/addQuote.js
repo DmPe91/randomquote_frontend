@@ -21,7 +21,7 @@ export const AddQuote = () => {
         text,
         author,
       };
-      await axios.post("http://localhost:1991/posts", quote);
+      await axios.post("https://rq-backend.onrender.com/posts", quote);
       navigate("/");
     } catch (error) {
       console.warn(error);

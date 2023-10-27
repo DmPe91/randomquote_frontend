@@ -19,7 +19,7 @@ export const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:1991/quotes")
+      .get("https://rq-backend.onrender.com/quotes")
       .then((res) => {
         setQuotes(res.data);
         setQuote(randomQuote(res.data));
