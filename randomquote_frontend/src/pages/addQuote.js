@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { randomQuote } from "../utils/randomQuote.js";
@@ -13,7 +13,7 @@ import Button from "../components/Button.js";
 export const AddQuote = () => {
   const [text, setText] = React.useState("");
   const [author, setAuthor] = React.useState("");
-  const [color, setColor] = useState(randomQuote(arrColor));
+  const [color] = useState(randomQuote(arrColor));
   const navigate = useNavigate();
   const onSubmit = async () => {
     try {
@@ -21,7 +21,7 @@ export const AddQuote = () => {
         text,
         author,
       };
-      await axios.post("${process.env.REACT_APP_API_URL}/posts", quote);
+      await axios.post(`${process.env.REACT_APP_API_URL}/posts`, quote);
       navigate("/");
     } catch (error) {
       console.warn(error);
