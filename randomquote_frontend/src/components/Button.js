@@ -11,6 +11,9 @@ const StyledButton = styled.button`
   margin-bottom: 15px;
   transition: 3s ease;
   float: right;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid transparent;
   &:hover {
     cursor: pointer;
     color: ${(props) => props.color};

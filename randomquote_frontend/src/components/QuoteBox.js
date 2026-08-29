@@ -9,6 +9,7 @@ const StyledQuoteBox = styled.div`
   flex-direction: column;
   justify-content: space-around;
   border-radius: 10px;
+  padding: 20px;
 `;
 
 const QuoteBox = (props) => {

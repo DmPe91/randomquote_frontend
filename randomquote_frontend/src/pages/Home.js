@@ -10,16 +10,19 @@ import Text from "../components/Text.js";
 import Author from "../components/Author.js";
 import ButtonBox from "../components/ButtonBox.js";
 import Button from "../components/Button.js";
+import Skeleton from "../components/Skeleton.js";
 
 export const Home = () => {
   const [time_animation, setTime_animation] = useState(false);
   const [quotes, setQuotes] = useState([]);
   const [quote, setQuote] = useState({});
   const [color, setColor] = useState(randomQuote(arrColor));
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     axios
-      .get("https://rq-backend.onrender.com/quotes")
+      .get(`${process.env.REACT_APP_API_URL}/quotes`)
       .then((res) => {
         setQuotes(res.data);
         setQuote(randomQuote(res.data));
@@ -28,6 +31,9 @@ export const Home = () => {
       .catch((err) => {
         console.warn(err);
         alert("Ошибка при получении цитаты");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, []);
 
@@ -42,27 +48,31 @@ export const Home = () => {
 
   return (
     <Wrapper background={color}>
-      <QuoteBox>
-        {time_animation ? (
-          <Zoom triggerOnce={true}>
-            <Text color={color}>{quote.text}</Text>
-            <Author color={color}>{quote.author}</Author>
-          </Zoom>
-        ) : (
-          <div>
-            <Text color={color}>{quote.text}</Text>
-            <Author color={color}>{quote.author}</Author>
-          </div>
-        )}
-        <ButtonBox>
-          <Button color={color} onClick={newQuote}>
-            новая цитата
-          </Button>
-          <Link to="/add-quote">
-            <Button color={color}>добавить цитату</Button>
-          </Link>
-        </ButtonBox>
-      </QuoteBox>
+      {loading ? (
+        <Skeleton />
+      ) : (
+        <QuoteBox>
+          {time_animation ? (
+            <Zoom triggerOnce={true}>
+              <Text color={color}>{quote.text}</Text>
+              <Author color={color}>{quote.author}</Author>
+            </Zoom>
+          ) : (
+            <div>
+              <Text color={color}>{quote.text}</Text>
+              <Author color={color}>{quote.author}</Author>
+            </div>
+          )}
+          <ButtonBox>
+            <Button color={color} onClick={newQuote}>
+              новая цитата
+            </Button>
+            <Link to="/add-quote">
+              <Button color={color}>добавить цитату</Button>
+            </Link>
+          </ButtonBox>
+        </QuoteBox>
+      )}
     </Wrapper>
   );
 };

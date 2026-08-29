@@ -9,9 +9,9 @@ height: 30px;
 type="text";
 border-radius: 10px;
 border: 2px solid ${(props) => props.color};
+padding: 25px;
 &:focus {
-  color: ${(props) => props.color};
-  
+  color: ${(props) => props.color};  
   font-size: 20px;
 }
 `;
